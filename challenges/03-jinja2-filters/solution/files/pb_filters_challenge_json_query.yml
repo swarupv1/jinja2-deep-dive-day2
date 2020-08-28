@@ -1,0 +1,45 @@
+---
+
+- name: JINJA FILTERS CHALLENGE
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    show_int: "{{ lookup('file', 'show_int_nxos.json') }}"
+
+
+  tasks:
+    - name: T1S2 - EXTRACT THE INTERFACE LIST
+      set_fact:
+        intf_list: "{{ show_int.TABLE_interface.ROW_interface }}"
+
+    - name: T1S3 - LIST ALL INTERFACE NAMES
+      debug:
+        msg: "List of interface names: {{ intf_list | json_query('[].interface') }}"
+
+    - name: T1S4 - PRINT INTERFACE NAMES AS CSV
+      debug:
+        msg: "Comma-separated interface names: {{ intf_list | json_query('[].interface') | join(', ') }}"
+
+    - name: T1S5 - LIST ALL INTERFACE MAC ADDRESSES AS UPPERCASE
+      debug:
+        msg: "All MAC addresses: {{ intf_list | json_query('[].eth_hw_addr') | upper }}"
+
+    - name: T1S6 - CONVERT MAC ADDRESSES TO LINUX FORMAT
+      debug:
+        msg: "All MAC addresses: {{ intf_list | json_query('[].eth_hw_addr') | map('hwaddr', 'linux') | list }} "
+
+    ## BONUS TASKS
+
+    - name: T3S1 - COUNT THE INTERFACES IN ADMIN UP STATE
+      debug:
+        msg: "Number of interfaces in Admin/UP state: {{ intf_list | json_query(\"[?admin_state=='up'].interface\") | length }}"
+
+    - name: T3S2 - PRINT A CSV LIST OF THE INTERFACE NAMES IN ADMIN UP STATE
+      debug:
+        msg: "Interfaces in Admin/UP state: {{ intf_list | json_query(\"[?admin_state=='up'].interface\") | join(', ') }}"
+
+    - name: T3S3 - PRINT A CSV LIST OF ALL INTERFACE NAMES IN UP/UP STATE
+      debug:
+        msg: "Interfaces in Admin/UP Operational/UP state: {{ intf_list | json_query(\"[?admin_state=='up' && state=='up'].interface\") | join(', ') }}"

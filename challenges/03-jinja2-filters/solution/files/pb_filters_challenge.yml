@@ -1,0 +1,65 @@
+---
+
+- name: JINJA FILTERS CHALLENGE
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    show_int: "{{ lookup('file', 'show_int_nxos.json') }}"
+
+
+  tasks:
+    - name: T1S1 - GET THE NUMBER OF INTERFACES
+      debug:
+        msg: "The switch has a total of {{ show_int.TABLE_interface.ROW_interface | length }} interfaces."
+
+    - name: T1S2 - EXTRACT THE INTERFACE LIST
+      set_fact:
+        intf_list: "{{ show_int.TABLE_interface.ROW_interface }}"
+
+    - name: T1S3 - LIST ALL INTERFACE NAMES
+      debug:
+        msg: "List of interface names: {{ intf_list | map(attribute='interface') | list }}"
+
+    - name: T1S4 - PRINT INTERFACE NAMES AS CSV
+      debug:
+        msg: "Comma-separated interface names: {{ intf_list | map(attribute='interface') | list | join(', ') }}"
+
+    - name: T1S5 - LIST ALL INTERFACE MAC ADDRESSES AS UPPERCASE
+      debug:
+        msg: "All MAC addresses: {{ intf_list | map(attribute='eth_hw_addr') | list | upper }}"
+
+    - name: T1S6 - CONVERT MAC ADDRESSES TO LINUX FORMAT
+      debug:
+        msg: "All MAC addresses: {{ intf_list | map(attribute='eth_hw_addr') | map('hwaddr', 'linux') | list }} "
+
+    - name: T2S1 - EXTRACT THE MGMT0 IP PREFIX
+      set_fact:
+        mgmt0_prefix: "{{ intf_list.0.eth_ip_addr }}/{{ intf_list.0.eth_ip_mask }}"
+
+    - name: T2S2 - PRINT THE USABLE IP RANGE FOR THE MGMT0 PREFIX
+      debug:
+        msg: "Usable IP range: {{ mgmt0_prefix | ipaddr('range_usable') }}"
+
+    - name: T2S3 - PRINT THE BROADCAST ADDRESS FOR THE MGMT0 PREFIX
+      debug:
+        msg: "Broadcast address: {{ mgmt0_prefix | ipaddr('broadcast') }}"
+
+    - name: T2S4 - PRINT THE 555TH USABLE ADDRESS FOR THE MGMT0 SUBNET
+      debug:
+        msg: "The 555th IP in the subnet: {{ mgmt0_prefix | ipaddr('555') }}"
+
+    ## BONUS TASKS
+
+    - name: T3S1 - COUNT THE INTERFACES IN ADMIN UP STATE
+      debug:
+        msg: "Number of interfaces in Admin/UP state: {{ intf_list | selectattr('admin_state','eq', 'up') | list | length }}"
+
+    - name: T3S2 - PRINT A CSV LIST OF THE INTERFACE NAMES IN ADMIN UP STATE
+      debug:
+        msg: "Interfaces in Admin/UP state: {{ intf_list | selectattr('admin_state','eq', 'up') | map(attribute='interface') | list | join(', ') }}"
+
+    - name: T3S3 - PRINT A CSV LIST OF ALL INTERFACE NAMES IN UP/UP STATE
+      debug:
+        msg: "Interfaces in Admin/UP Operational/UP state: {{ intf_list | selectattr('admin_state','eq', 'up') | selectattr('state','eq', 'up') | map(attribute='interface') | list | join(', ') }}"

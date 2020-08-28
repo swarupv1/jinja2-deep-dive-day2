@@ -1,0 +1,17 @@
+---
+
+- name: JINJA FILTERS CHALLENGE
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    show_int: "{{ lookup('file', 'show_int_nxos.json') }}"
+
+
+  tasks:
+    # START HERE
+    - name: GET THE NUMBER OF INTERFACES
+      debug:
+        msg: "The switch has a total of ... interfaces."
+
