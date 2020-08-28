@@ -1,0 +1,101 @@
+---
+
+- name: GATHER IOS FACTS
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tags: dir
+
+  tasks:
+
+    - name: CREATE THE CSV FOLDER
+      file:
+        path: ./docs/csv/
+        state: directory
+
+
+- name: GATHER IOS FACTS
+  hosts: iosxe
+  connection: local
+  gather_facts: false
+  tags: ios
+
+  tasks:
+    - name: GET FACTS
+      ios_facts:
+      tags: ios_facts
+
+    - name: DUMP FACTS INTO CSV FILE
+      template:
+        src: facts-csv.j2
+        dest: ./docs/csv/{{ inventory_hostname }}.csv
+
+
+- name: GATHER NXOS FACTS
+  hosts: nxos
+  connection: local
+  gather_facts: false
+  tags: nxos
+
+  tasks:
+    - name: GET NXOS FACTS
+      nxos_facts:
+
+    - name: DUMP FACTS INTO FILE
+      template:
+        src: facts-csv.j2
+        dest: ./docs/csv/{{ inventory_hostname }}.csv
+
+
+- name: GATHER EOS FACTS
+  hosts: eos
+  connection: local
+  gather_facts: false
+  tags: eos
+
+  tasks:
+    - name: GATHER FACTS FROM EOS
+      eos_facts:
+
+    - name: DUMP FACTS INTO CSV FILE
+      template:
+        src: facts-csv.j2
+        dest: ./docs/csv/{{ inventory_hostname }}.csv
+
+
+- name: GATHER IOS FACTS
+  hosts: vmx
+  connection: local
+  gather_facts: false
+  tags: junos
+
+  tasks:
+    - name: GET FACTS
+      junos_facts:
+      tags: ios_facts
+
+    - name: DUMP FACTS INTO CSV FILE
+      template:
+        src: facts-csv.j2
+        dest: ./docs/csv/{{ inventory_hostname }}.csv
+
+
+- name: FINAL TASK
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tags: assemble
+
+  tasks:
+
+    - name: CREATE MASTER CSV REPORT
+      assemble:
+        src: ./docs/csv/
+        dest: ./docs/master-csv.csv
+
+    - name: INSERT COLUMNS INTO CSV REPORT
+      lineinfile:
+        path: ./docs/master-csv.csv
+        line: "Hostname,Vendor,Model,OS Version,Serial Number"
+        insertbefore: BOF
+        state: present
