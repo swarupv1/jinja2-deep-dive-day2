@@ -1,0 +1,9 @@
+ansible
+netmiko
+napalm
+ansible-lint
+yamllint
+black
+netaddr
+jmespath
+requests
