@@ -37,3 +37,9 @@ services:
     container_name: grafana
     ports:
       - 3000:3000
+    volumes:
+      - ./configs/grafana-provisioning:/etc/grafana/provisioning
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:
