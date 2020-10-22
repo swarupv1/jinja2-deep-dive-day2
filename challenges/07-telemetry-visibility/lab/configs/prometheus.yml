@@ -7,7 +7,7 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'snmp'
+  - job_name: 'telegraf'
     static_configs:
       - targets:
         - 'http-telegraf-01:9012'
