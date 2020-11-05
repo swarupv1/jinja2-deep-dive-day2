@@ -3,7 +3,7 @@
 - name: TEST CUSTOM MODULE WORKS
   hosts: iosxe
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
 

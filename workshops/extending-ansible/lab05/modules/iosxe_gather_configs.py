@@ -12,7 +12,7 @@ def main():
     module_args = dict(
         host=dict(type="str", required=True),
         user=dict(type="str", required=True),
-        password=dict(type="str", required=True),
+        password=dict(type="str", required=True, no_log=True),
         filter=dict(
             type="str",
             required=False,
@@ -50,7 +50,7 @@ def main():
 
     response = requests.get(url, headers=headers, auth=auth, verify=False)
 
-    module.exit_json(changed=False, meta=response.json())
+    module.exit_json(msg=response.json())
 
 
 if __name__ == "__main__":
