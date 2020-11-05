@@ -1,0 +1,30 @@
+---
+
+- name: BUILD TEXT TABLE
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    table_data:
+      headers: ['NAME','DATE CREATED', 'STATUS', 'ID', 'IP ADDRESS']
+      rows:
+        - ['IOSXE', 'today', 'up', '098435', '10.10.10.1']
+        - ['NXOS', 'today', 'down', '098435', '10.10.10.2']
+        - ['JUNIPER', 'today', 'down', '098078', '10.10.10.3']
+
+  tasks:
+    # This is the Python dictionary parsed from the playbook YAML vars
+    - name: DISPLAY STRUCTURED INPUT DATA
+      debug:
+        var: table_data
+
+    # This is the text table with whitespace and newlines
+    - name: DISPLAY TEXT OUTPUT DATA
+      debug:
+        var: table_data | build_table
+
+    # Save to a file the formatted text table
+    - name: SAVE TABLE REPRESENTATION TO FILE
+      copy:
+        content: "{{ table_data | build_table }}"
+        dest: table.txt

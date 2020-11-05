@@ -1,0 +1,30 @@
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>DATE CREATED</th>
+        <th>STATUS</th>
+        <th>ID</th>
+        <th>IP ADDRESS</th>
+    </tr>
+    <tr>
+        <td>IOSXE</td>
+        <td>today</td>
+        <td>up</td>
+        <td>098435</td>
+        <td>10.10.10.1</td>
+    </tr>
+    <tr>
+        <td>NXOS</td>
+        <td>today</td>
+        <td>down</td>
+        <td>098435</td>
+        <td>10.10.10.2</td>
+    </tr>
+    <tr>
+        <td>JUNIPER</td>
+        <td>today</td>
+        <td>down</td>
+        <td>098078</td>
+        <td>10.10.10.3</td>
+    </tr>
+</table>

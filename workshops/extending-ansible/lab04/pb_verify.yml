@@ -1,0 +1,35 @@
+---
+
+- name: NXOS INTERFACES STATE VERIFICATION
+  hosts: nxos
+  gather_facts: false
+
+  vars:
+    interface_intent:
+      - name: Ethernet1/1
+        state: up
+      - name: Ethernet1/2
+        state: up
+      - name: Ethernet1/10
+        state: up
+      - name: Ethernet1/11
+        state: down
+
+  tasks:
+    - name: GET INTERFACE STATE FROM SWITCH
+      nxos_command:
+        commands: show int brief | json
+      register: show_int_brief
+
+    - name: COMPARE INTENT TO OPERATIONAL STATE
+      set_fact:
+        interface_pass_fail: "{{ show_int_brief.stdout.0 | verify_intended_state(interface_intent) }}"
+
+    - name: SHOW COMPARISON RESULTS
+      debug:
+        var: interface_pass_fail
+
+    - name: ASSERT THAT NO INTERFACES HAVE FAILED THE CHECKS
+      assert:
+        that:
+          - interface_pass_fail.fail | length == 0

@@ -1,0 +1,9 @@
+[iosxe]
+csr1
+csr2
+csr3
+
+
+[iosxe:vars]
+username=ntc
+password=ntc123
