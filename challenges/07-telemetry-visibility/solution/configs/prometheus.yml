@@ -12,4 +12,3 @@ scrape_configs:
       - targets:
         - 'http-telegraf-01:9012'
         - 'dns-telegraf-01:9013'
-        - 'http-telegraf-02:9014'
