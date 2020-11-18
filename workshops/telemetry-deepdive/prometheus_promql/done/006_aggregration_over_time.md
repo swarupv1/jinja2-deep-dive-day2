@@ -16,11 +16,11 @@ max_over_time(asa_anyconnect_client_active{}[24h])
 </details>
 
 ### Task 2
-Calulate the top 5% `dns_query_query_time_ms` times (highest ms) for the `site`=`lessines` and the `sensor_name`=`google_public_dns_a` over a 5 minute time range.
+Calculate the average `dns_query_query_time_ms` over a 5 minute time range for the `site`=`lessines` and the `sensor_name`=`google-public-dns-a.google.com`.
 <details>
   <summary>Reveal Answer</summary>
   
 ```
-quantile_over_time(0.95, dns_query_query_time_ms{site="lessines",sensor_name="google_public_dns_a"}[5m])
+avg_over_time(dns_query_query_time_ms{site="lessines", sensor="google-public-dns-a.google.com"}[5m])
 ```
 </details>
