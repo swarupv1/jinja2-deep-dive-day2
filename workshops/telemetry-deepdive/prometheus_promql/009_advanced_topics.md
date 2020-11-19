@@ -25,8 +25,3 @@ Calculate the standard deviation of `dns_query_query_time_ms` across all devices
 stddev(dns_query_query_time_ms{site="lessines", sensor="one.one.one.one"})
 ```
 </details>
-
-
-
-
-stddev(dns_query_query_time_ms{site="lessines", sensor="one.one.one.one"})
