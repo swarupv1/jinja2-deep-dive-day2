@@ -1,10 +1,10 @@
 # Label Filtering
 ## Goals
 The goals of this lab are:
-* Familerize yourself with the Thanos UI.
+* Familiarize yourself with the Thanos UI.
 * Perform basic label filtering to return the active ASA VPN clients.
 
-## Excercises
+## Exercises
 ### Basic Query
 Run the query: `asa_anyconnect_client_active` and view the results within the `Console`.
 ### Query with Label Selection (Equal)

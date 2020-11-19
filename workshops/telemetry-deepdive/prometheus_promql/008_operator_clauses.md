@@ -4,7 +4,7 @@ The goals of this lab are:
 * Familiarize yourself with the by() and without() operator clauses.
 
 
-## Excercises
+## Exercises
 ### Task 1
 Calculate the average `dns_query_query_time_ms` by including the tags `host` and `server`.
 <details>

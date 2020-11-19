@@ -1,10 +1,10 @@
 # deriv(), delta()
 ## Goals
 The goals of this lab are:
-* Familerize yourself with the deriv() function.
-* Familerize yourself with the delta() function.
+* Familiarize yourself with the deriv() function.
+* Familiarize yourself with the delta() function.
 
-## Excercises
+## Exercises
 ### Task 1
 Calculate how `disk_used` is evolving per second for all disk paths on `host` `deftlnetops200` averaged over the last 10 minutes.
 <details>

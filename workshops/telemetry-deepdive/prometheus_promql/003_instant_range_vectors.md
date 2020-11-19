@@ -4,7 +4,7 @@ The goals of this lab are:
 * Familiarize yourself with querying and returning instant vectors.
 * Familiarize yourself with querying and returning range vectors.
 
-## Excercises
+## Exercises
 ### Task 1
 Perform a query to return an instant vector for the metric `interface_in_octets` for `hostname=rAWPLblo02` and `interface="GigabitEthernet0/2"`.
 <details>

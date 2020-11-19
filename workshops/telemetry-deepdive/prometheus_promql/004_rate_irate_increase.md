@@ -1,11 +1,11 @@
 # rate(), irate(), increase()
 ## Goals
 The goals of this lab are:
-* Familerize yourself with the rate() function.
-* Familerize yourself with the irate() function.
-* Familerize yourself with the increase() function.
+* Familiarize yourself with the rate() function.
+* Familiarize yourself with the irate() function.
+* Familiarize yourself with the increase() function.
 
-## Excercises
+## Exercises
 ### Task 1
 Return the per-second increase of the `interface_in_octets` metric, over a 5 minute range for `interface` `GigabitEthernet0/2`.
 <details>

@@ -1,10 +1,10 @@
 # Aggregation Operators
 ## Goals
 The goals of this lab are:
-* Familerize yourself with the sum() aggregation operator.
-* Familerize yourself with the count() aggregation operator.
+* Familiarize yourself with the sum() aggregation operator.
+* Familiarize yourself with the count() aggregation operator.
 
-## Excercises
+## Exercises
 ### Task 1
 Calculate the total number of `asa_anyconnect_client_active` sessions across all devices within the `frankfurt` site.
 <details>

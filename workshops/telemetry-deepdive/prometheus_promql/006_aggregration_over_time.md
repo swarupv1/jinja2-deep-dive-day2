@@ -1,10 +1,10 @@
 # Aggregation over Time
 ## Goals
 The goals of this lab are:
-* Familerize yourself with the aggregation over time based functions.
+* Familiarize yourself with the aggregation over time based functions.
 
 
-## Excercises
+## Exercises
 ### Task 1
 Calculate the maximum number of `asa_anyconnect_client_active` over a 24 hour time period, for all sites.
 <details>
