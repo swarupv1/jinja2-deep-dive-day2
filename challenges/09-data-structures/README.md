@@ -228,16 +228,18 @@ site = {
     }
 }
 ```
+
+> Hint: Similar to lists, values can be assigned to individual keys in a dictionary.
  
 #### Task 8 - Bonus - converting unstructured text into structured data 1
  
 Convert the below unstructured text to a structured data. Use a data structure type that fits this data best.
  
-Record the final data structure using Python syntax. Assign it to "interface_state" variable.
+Record the final data structure using Python syntax. Assign it to `interface_state` variable.
  
 Think about data types for each of the values you are capturing.
  
-**Do NOT** used nested data structures.
+**Do NOT** use nested data structures.
  
 ```
 GigabitEthernet0/0/0 is up, line protocol is up
@@ -252,11 +254,11 @@ GigabitEthernet0/0/0 is up, line protocol is up
  
 #### Task 9 - Bonus - converting unstructured text into structured data 2
  
-Convert the below unstructured data to nested data structure.
+Convert the below unstructured text to nested data structure.
  
 Multicast groups should be recorded in a list.
  
-Record the final data structure using Python syntax. Assign it to "interface_state" variable.
+Record the final data structure using Python syntax. Assign it to `interface_state` variable.
  
 ```
 GigabitEthernet0/2.1 is up, line protocol is up
@@ -267,17 +269,19 @@ GigabitEthernet0/2.1 is up, line protocol is up
       224.0.0.5 224.0.0.6
 ```
  
-> Hint: 
+> Hint: You're free to choose names in your data structures that feel most appropriate to you.
  
-#### Task 10: Bonus - Exploring JSON data
+#### Task 10 - Bonus - Exploring JSON data
  
-In this task you will explore, using Python, JSON data for a single device, returned by NetBox API.
+In this task you will explore, using Python, JSON data describing single device, returned by NetBox API.
  
 This is an open-ended task. Follow instructions below to load data into your Python interpreter.
  
 Try to access values of different attributes at varying levels of nesting. Investigate data types for values you’re accessing.
- 
-Navigate to the directory named `files` contained within the challenge directory.
+
+##### Steps for loading data
+
+- Navigate to the directory named `files` contained within the challenge directory.
 
 For example:
 
@@ -288,7 +292,7 @@ For example:
 /home/przemek/enablement/enablement-program-baxter/challenges/09-data-structures/files
 ```
  
-Execute the below command to load JSON data and launch the Python interpreter.
+- Once you're in the `files` directory, execute the below command to load JSON data and launch the Python interpreter.
  
 ```
 python -i netbox_device.py
@@ -304,7 +308,7 @@ You can use 'pp(nb_device)' to display all of the data.
 >>>
 ```
  
-Loaded JSON data is assigned to the `nb_device` variable. You can use the `pp(nb_device)` statement to show you the structure of the data.
+- Loaded JSON data is assigned to the `nb_device` variable. You can use the `pp(nb_device)` statement to show you the structure of the data.
  
  
 ### Reference Enablement Material
