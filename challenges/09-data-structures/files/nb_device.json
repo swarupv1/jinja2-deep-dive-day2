@@ -1,0 +1,91 @@
+
+
+{
+    "id": 3057,
+    "name": "sALBEles09",
+    "display_name": "sALBEles09",
+    "device_type": {
+        "id": 417,
+        "url": "https://netbox-dev.aws.baxter.com/api/dcim/device-types/417/",
+        "manufacturer": {
+            "id": 1,
+            "url": "https://netbox-dev.aws.baxter.com/api/dcim/manufacturers/1/",
+            "name": "Cisco",
+            "slug": "cisco"
+        },
+        "model": "C9300-48P",
+        "slug": "c9300-48p",
+        "display_name": "Cisco C9300-48P"
+    },
+    "device_role": {
+        "id": 19,
+        "url": "https://netbox-dev.aws.baxter.com/api/dcim/device-roles/19/",
+        "name": "switch--access-lan",
+        "slug": "switch--access-lan"
+    },
+    "tenant": null,
+    "platform": {
+        "id": 2,
+        "url": "https://netbox-dev.aws.baxter.com/api/dcim/platforms/2/",
+        "name": "ios",
+        "slug": "cisco_ios"
+    },
+    "serial": "FOC2307X1QU",
+    "asset_tag": null,
+    "site": {
+        "id": 10,
+        "url": "https://netbox-dev.aws.baxter.com/api/dcim/sites/10/",
+        "name": "Lessines",
+        "slug": "lessines"
+    },
+    "rack": null,
+    "position": null,
+    "face": null,
+    "parent_device": null,
+    "status": {
+        "value": "active",
+        "label": "Active",
+        "id": 1
+    },
+    "primary_ip": {
+        "id": 3682,
+        "url": "https://netbox-dev.aws.baxter.com/api/ipam/ip-addresses/3682/",
+        "family": 4,
+        "address": "10.101.122.26/24"
+    },
+    "primary_ip4": {
+        "id": 3682,
+        "url": "https://netbox-dev.aws.baxter.com/api/ipam/ip-addresses/3682/",
+        "family": 4,
+        "address": "10.101.122.26/24"
+    },
+    "primary_ip6": null,
+    "cluster": null,
+    "virtual_chassis": {
+        "id": 2146,
+        "url": "https://netbox-dev.aws.baxter.com/api/dcim/virtual-chassis/2146/",
+        "master": {
+            "id": 3057,
+            "url": "https://netbox-dev.aws.baxter.com/api/dcim/devices/3057/",
+            "name": "sALBEles09",
+            "display_name": "sALBEles09"
+        }
+    },
+    "vc_position": 1,
+    "vc_priority": 15,
+    "comments": "",
+    "local_context_data": null,
+    "tags": [],
+    "custom_fields": {
+        "last_check_attempt_dt": "2020-04-05",
+        "last_check_attempt_ts": 1586119174,
+        "last_check_result": "success",
+        "last_check_successfull_dt": "2020-04-05",
+        "last_check_successfull_ts": 1586119174,
+        "last_ot": 5349,
+        "service_level": null
+    },
+    "config_context": {},
+    "created": "2019-10-31",
+    "last_updated": "2020-04-05T20:40:01.257578Z"
+}
