@@ -81,6 +81,7 @@ In this question you were asked:
 
 To validate the OSPF sessions we use `ospfSessionCompatibility()`. This will also tell us the reason for the session failure.
 We will see there is an OSPF area mismatch between the 2 neighbors.
+
 **Note:** All the possible status values can be found at https://pybatfish.readthedocs.io/en/latest/specifiers.html#ospf-session-status-specifier.
 
 ```
