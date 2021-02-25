@@ -4,7 +4,7 @@
 
 ## Introduction to Batfish
 
-The goal of this exercise is to learn about the common operations in Batfish. In You will learn how to interact with Batfish and work with its output.
+The goal of this exercise is to learn about the common operations in Batfish. You will learn how to interact with Batfish and work with its output.
  
 For certain parts of this challenge you will need to refer to https://pybatfish.readthedocs.io/en/latest/questions.html to understand the question that we will need to ask. 
 
@@ -13,7 +13,7 @@ For certain parts of this challenge you will need to refer to https://pybatfish.
 #### Task 1 - Snapshot Import
  
 In this question you were asked:
-> From the helper file `bf_snapshot_importer.py` can you determine the line where the snapshot is initialized using the supplied snapshot path.
+> From the helper file `bf_snapshot_importer.py` can you determine the line where the snapshot is initialized using the supplied snapshot path?
  
 From looking into this file you will see that the following line is used to initialize the snapshot.
 ```python

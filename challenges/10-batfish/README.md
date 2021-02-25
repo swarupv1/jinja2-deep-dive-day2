@@ -1,6 +1,6 @@
 # Challenge - Batfish
  
-The goal of this exercise is to learn about the common operations in Batfish. In You will learn how to interact with Batfish and work with its output.
+The goal of this exercise is to learn about the common operations in Batfish. You will learn how to interact with Batfish and work with its output.
  
 For certain parts of this challenge you will need to refer to https://pybatfish.readthedocs.io/en/latest/questions.html to understand the question that we will need to ask. 
 
@@ -9,7 +9,7 @@ For certain parts of this challenge you will need to refer to https://pybatfish.
 ### Prerequisites
  
 You will need to have:
-* a Python interpreter installed on your machine
+* Python virtual environment created and activated
 * along with install a virtualenv
 * the required dependancies installed
 * a Batfish container running
@@ -33,7 +33,7 @@ Submitting your solution for this challenge is optional - feel free to ask for h
  
 #### Task 1 - Snapshot Import
  
-From the helper file `bf_snapshot_importer.py` can you determine the line where the snapshot is initialized using the supplied snapshot path.
+From the helper file `bf_snapshot_importer.py` can you determine the line where the snapshot is initialized using the supplied snapshot path?
 
  
 #### Task 2 - Snapshot Validation
