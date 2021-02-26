@@ -10,7 +10,6 @@ For certain parts of this challenge you will need to refer to https://pybatfish.
  
 You will need to have:
 * Python virtual environment created and activated
-* along with install a virtualenv
 * the required dependancies installed
 * a Batfish container running
 * the example snapshot imported
