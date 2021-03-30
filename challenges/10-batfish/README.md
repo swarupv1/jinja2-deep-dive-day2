@@ -20,8 +20,8 @@ docker run --name batfish -d -v batfish-data:/data -p 8888:8888 -p 9997:9997 -p 
 
 cd 10-batfish
 virtualenv --python=`which python3` venv
-pip3 install -r files/requirements.txt
 source venv/bin/activate
+pip3 install -r files/requirements.txt
 
 ./files/bf_snapshot_importer.py --snapshot_path files/nxos-spineleaf-001/
 ```
