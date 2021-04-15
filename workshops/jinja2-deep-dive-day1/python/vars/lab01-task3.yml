@@ -1,0 +1,21 @@
+---
+domain_name: jinja2.lab
+
+sites:
+  london-th-east:
+    region: EMEA
+    location-name: London Telehouse East
+    contact-info: support@th-east.null
+
+regions:
+  EMEA:
+    logging_hosts:
+      - 10.1.54.4
+      - 10.4.6.16
+
+hostname: sw-dist-lon-01
+site: london-th-east
+
+logging_settings:
+  archive_logging_size: 500
+  source_interface: Loopback0
