@@ -1,0 +1,22 @@
+{% for intf in interfaces %}
+interface {{ intf['name'] }}
+ {% if intf['type'] == 'layer3' %}
+ ip address {{ intf['ip'] }}
+ {% elif intf['type'] == 'layer2_access' %}
+ switchport mode access
+ switchport access vlan 20
+ {% elif intf['type'] == 'layer2_trunk' %}
+ switchport mode trunk
+  {% if intf['native_vlan'] is defined %}
+ switchport trunk native vlan {{ intf['native_vlan'] }}
+  {% endif %}
+  {% if intf['allowed_vlans'] == 'none' %}
+ switchport trunk allowed vlan none
+  {% elif intf['allowed_vlans'] == 'all' %}
+ switchport trunk allowed vlan all
+  {% else %}
+ switchport trunk allowed vlan {{ intf['allowed_vlans'] }}
+  {% endif %}
+ {% endif %}
+!
+{% endfor %}

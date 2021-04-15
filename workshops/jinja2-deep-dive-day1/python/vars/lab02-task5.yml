@@ -1,0 +1,28 @@
+---
+sdwan_sites:
+  - Paris
+  - Tokyo
+
+devices:
+  - name: sw-dist-waw-01
+    device_type: switch
+    stack_pos: 1
+    os_ver: 4.18
+    layer: layer2
+    site: Warsaw
+  - name: sw-dist-waw-01
+    device_type: switch
+    stack_pos: 2
+    os_ver: 4.18
+    layer: layer2
+    site: Warsaw
+  - name: sw-dist-par-01
+    device_type: switch
+    os_ver: 4.20
+    layer: layer3
+    site: Paris
+  - name: rtr-core-ty-01
+    device_type: router
+    os_ver: 4.21
+    layer: layer3
+    site: Tokyo

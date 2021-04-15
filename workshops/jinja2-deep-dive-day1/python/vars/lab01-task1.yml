@@ -1,0 +1,15 @@
+---
+hostname: lab-nxos
+
+snmp:
+  community-string: snmpS3cr4t!
+
+dns:
+  domain: lab.local
+  servers:
+    - 8.8.8.8
+    - 8.8.4.4
+
+ntp_servers:
+  - 10.5.5.2
+  - 10.7.5.2

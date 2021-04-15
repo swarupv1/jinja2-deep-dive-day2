@@ -1,0 +1,10 @@
+---
+dc_name: LD4
+number_of_devices: 576
+dc_temp: "68.5"
+
+vrfs:
+  BLUE:
+    rid: 1:1
+  RED:
+    rid: 2:2

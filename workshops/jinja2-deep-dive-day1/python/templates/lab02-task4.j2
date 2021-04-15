@@ -1,0 +1,5 @@
+{% for line in secure_acl['lines'] %}
+ip access-list standard {{ secure_acl['name'] }}
+ 10 permit {{ line.network }} {{ line['mask'] }}
+! Total ACL lines: {{ secure_acl['lines'] | length }}
+{% endfor %}

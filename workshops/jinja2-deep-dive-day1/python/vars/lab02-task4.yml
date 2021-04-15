@@ -1,0 +1,10 @@
+---
+secure_acl:
+  name: SECURE_ACCESS_IN
+  lines:
+    - network: 10.0.0.0
+      mask: 0.0.0.255
+    - network: 10.0.1.0
+      mask: 0.0.0.255
+    - network: 10.0.2.0
+      mask: 0.0.0.255

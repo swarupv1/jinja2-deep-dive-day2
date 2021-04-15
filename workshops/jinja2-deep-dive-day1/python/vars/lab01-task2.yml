@@ -1,0 +1,7 @@
+---
+lab_cab_start: 10
+lab_rack_u_start: 8
+
+name: lab-cat9k
+lab_number: 15
+rack_u_height: 4

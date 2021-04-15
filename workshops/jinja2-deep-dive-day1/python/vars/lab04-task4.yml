@@ -1,0 +1,20 @@
+---
+interfaces:
+ - name: Loopback0
+   type: layer3
+   ip: 10.255.255.1/32
+ - name: Ethernet1
+   type: layer2_access
+   access_vlan: 20
+ - name: PortChannel40
+   type: layer2_trunk
+   native_vlan: 99
+   allowed_vlans: "all"
+ - name: PortChannel50
+   type: layer2_trunk
+   native_vlan: 85
+   allowed_vlans: "none"
+ - name: PortChannel60
+   type: layer2_trunk
+   native_vlan: 85
+   allowed_vlans: "85, 88, 90"
