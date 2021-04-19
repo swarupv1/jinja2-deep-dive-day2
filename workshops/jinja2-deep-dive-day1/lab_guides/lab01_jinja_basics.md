@@ -43,7 +43,7 @@ snmp-server community snmpS3cr4t! RO
 Run the below command to test your template.
 
 ```
-./j2_render.py -t lab01-task1.j2 -d lab01-task1.yml --strip
+./j2_render.py -t lab01-task1.j2 -d lab01-task1.yml -trim
 ```
 
 <details>
