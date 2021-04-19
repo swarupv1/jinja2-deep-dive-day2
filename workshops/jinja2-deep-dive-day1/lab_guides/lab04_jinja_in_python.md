@@ -180,7 +180,7 @@ Create template file `lab04-task3.j2` in `./my_templates`. Copy the below conten
 
 ```
 Machine Learning cluster: {{ server_name }}
-Selected algorithm: {{ algo }
+Selected algorithm: {{ algo }}
 Processing power: {{ cluster_mflops }}
 ```
 

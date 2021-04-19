@@ -91,7 +91,7 @@ Create template file `lab05-task2.j2` in `./templates`. Copy the below content i
 
 ```
 Machine Learning cluster: {{ server_name }}
-Selected algorithm: {{ algo }
+Selected algorithm: {{ algo }}
 Processing power: {{ cluster_mflops }}
 ```
 
