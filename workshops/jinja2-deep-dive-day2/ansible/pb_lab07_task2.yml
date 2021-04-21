@@ -1,0 +1,21 @@
+---
+- name: "PLAY 1: LAB07-TASK2 Macros"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+
+  vars:
+    data_file: "lab07-task2.yml"
+    template_file: "lab07-task2.j2"
+    dest_file: "lab07-task2.txt"
+
+  tasks:
+    - name: "TASK 1: LOAD VARIABLES"
+      include_vars:
+        file: "vars/{{ data_file }}"
+
+    - name: "TASK 2: RENDER TEMPLATE"
+      template:
+        src: "{{ template_file }}"
+        dest: "output/{{ dest_file }}"
+        lstrip_blocks: true

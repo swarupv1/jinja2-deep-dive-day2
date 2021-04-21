@@ -1,0 +1,16 @@
+{% from 'macros/ip_net_format.j2' import network_w_wildcard, network_w_netmask, network_w_pfxlen  %}
+
+Networks in "network wildcard" format:
+{% for net in networks %}
+{{ network_w_wildcard(net['prefix']) }}
+{% endfor %}
+
+Networks in "network netmask" format:
+{% for net in networks %}
+{{ network_w_netmask(net['prefix']) }}
+{% endfor %}
+
+Networks in "network/pfxlen" format:
+{% for net in networks %}
+{{ network_w_pfxlen(net['prefix']) }}
+{% endfor %}

@@ -1,0 +1,14 @@
+---
+interfaces:
+  - name: Ethernet1
+    ip: 10.3.0.1/24
+    prefix_list: PL_REDIST_OSPF
+  - name: Ethernet2
+    ip: 10.6.7.1/24
+    prefix_list: PL_REDIST_BGP
+  - name: Ethernet3
+    ip: 10.23.1.1/24
+    prefix_list: PL_REDIST_OSPF
+  - name: Ethernet4
+    ip: 10.145.5.1/24
+    prefix_list: PL_REDIST_BGP

@@ -1,0 +1,60 @@
+---
+hostname: rtr-edge-ams-01
+
+dns:
+  servers:
+   - 8.8.8.8
+   - 8.8.4.4
+
+ntp:
+  servers:
+   - ip: 1.127.0.1
+     prefer: true
+   - ip: 1.200.0.127
+     prefer: false
+
+interfaces:
+  GigabitEthernet1:
+    description: WAN to US
+    ipv4_address: 10.56.0.0/31
+  GigabitEthernet2:
+    description: WAN to US
+    ipv4_address: 10.56.0.0/31
+  GigabitEthernet3:
+    description: Uplink to FW
+    ipv4_address: 10.99.15.250/31
+  GigabitEthernet4:
+    description: Corvil monitoring
+    ipv4_address: 10.255.0.1/30
+
+prefix_lists:
+  PL_WAN_US_IN:
+    - permit 0.0.0.0/0 le 32
+  PL_WAN_US_OUT:
+    - permit 10.0.1.0/16
+    - permit 10.0.2.0/16
+  PL_WAN_JPN_IN:
+    - permit 0.0.0.0/0 le 32
+  RM_WAN_JPN_OUT:
+    - permit 10.5.1.0/16
+    - permit 10.5.2.0/16
+
+bgp:
+  as_no: 65005
+  rid: 1.1.1.1
+  neighbors:
+   - ip: 10.56.0.1/31
+     as_no: 65007
+     description: rtr-edge-ny-01
+     rm_in: RM_WAN_US_IN
+     rm_out: RM_WAN_US_OUT
+     properties:
+      - rr_client
+   - ip: 10.89.5.3/31
+     as_no: 65034
+     description: rtr-edge-ty-01
+     rm_in: RM_WAN_JPN_IN
+     rm_out: RM_WAN_JPN_OUT
+     vrf: ASIA-SEGMENT
+     properties:
+      - send_community

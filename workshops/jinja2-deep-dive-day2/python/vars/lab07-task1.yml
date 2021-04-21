@@ -1,0 +1,10 @@
+---
+interfaces:
+ - name: Ethernet10
+   role: data
+ - name: Ethernet11
+   role: data
+ - name: Ethernet12
+   role: voice
+ - name: Ethernet24
+   role: wap

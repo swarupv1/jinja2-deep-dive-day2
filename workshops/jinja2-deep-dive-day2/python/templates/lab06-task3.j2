@@ -1,0 +1,3 @@
+{% for interface in interfaces %}
+ip prefix-list {{ interface['prefix_list'] }} seq 5 {{ interface['ip'] | ipaddr('network/prefix') }}
+{% endfor %}

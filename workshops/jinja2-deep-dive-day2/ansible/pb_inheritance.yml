@@ -1,0 +1,15 @@
+---
+- name: "VRF TRANSFORM"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+
+  vars:
+    device_role: "router--edge"
+
+  tasks:
+    - name: "TASK 2: RENDER TEMPLATE"
+      template:
+        src: "{{ device_role }}/bgp.j2"
+        dest: "output/{{ device_role }}_bgp.cfg"
+        lstrip_blocks: true

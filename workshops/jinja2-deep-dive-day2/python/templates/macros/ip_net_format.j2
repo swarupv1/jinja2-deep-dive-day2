@@ -1,0 +1,11 @@
+{% macro network_w_wildcard(ip_net) %}
+{{ ip_net | ipaddr('network') }} {{ ip_net | ipaddr('hostmask')}}
+{%- endmacro -%}
+
+{% macro network_w_netmask(ip_net) %}
+{{ ip_net | ipaddr('network') }} {{ ip_net | ipaddr('netmask') }}
+{%- endmacro -%}
+
+{% macro network_w_pfxlen(ip_net) %}
+{{ ip_net | ipaddr('network/prefix') }}
+{%- endmacro -%}

@@ -1,0 +1,8 @@
+{% macro ip_w_wildcard(ip_network) %}
+{{ ip_network | ipaddr('network') }} {{ ip_network | ipaddr('hostmask')}}
+{%- endmacro -%}
+
+ip access-list standard {{ in_std_acl_name }}
+{% for ip_address in interfaces | map(attribute='ipv4_address') %}
+ permit {{ ip_w_wildcard(ip_address) }}
+{% endfor %}
