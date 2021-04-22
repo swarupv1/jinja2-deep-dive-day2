@@ -1,5 +1,10 @@
 # Lab 08 - Jinja `include` and `import` statements
 
+Goals of this lab:
+
+- Practice using include statement.
+- Practice using import statement.
+
 ## Task 01
 
 > Resources for this task:
@@ -26,9 +31,9 @@ Use the below section names:
 - ntp
 - prefix_lists
 
-Name each of your templates after the section name and place them in the `templates/section` directory.
+Name each of your templates after the section name and place them in the `templates/sections` directory.
 
-For example, For section `dns` you would create the `templates/section/dns.j2` template. This should contain a template rendering DNS related configuration.
+For example, for section `dns` you would create the `templates/sections/dns.j2` template. This should contain a template rendering DNS related configuration.
 
 Once you created your section templates, create a template named `lab08-task1-final.j2`. This template should only contain references to section templates and nothing else.
 
@@ -130,7 +135,7 @@ You should split the original template into multiple chunks and move them to sec
 
 Each section template will contain part of the original template related to the given config element.
 
-Once all template chunks are in place combine them by using `{% include `template_path` %}` expression.
+Once all template chunks are in place combine them by using `{% include 'template_path' %}` expression.
 
 ```
 {% include 'sections/general.j2' %}
@@ -161,9 +166,7 @@ Template `python/vars/lab08-task2.j2` uses section templates created in the Task
 
 You should now make a copy of the `bgp.j2` template you created in Task 01 and name this copy `bgp_v2.j2`.
 
-Your task is to move duplicated neighbor configuration lines in `bgp_v2.j2` to another template called `bgp_neighbor.j2`. Template `bgp_v2.j2` should use this sub-template to generate a neighbor configuration.
-
-Once `bgp_v2.j2` is in place update `python/vars/lab08-task2.j2` to refer to it instead of `bgp.j2`.
+Your task is to move duplicated neighbor configuration lines in `bgp_v2.j2` to another template called `bgp_neighbor.j2` in the `templates/sections` directory. Template `bgp_v2.j2` should use this sub-template to generate a neighbor configuration.
 
 Your final output should match the output from Task 01.
 
@@ -294,7 +297,7 @@ Networks in "network/pfxlen" format:
 
 ### Step 4
 
-Modify template `lab08-task3.j2`, which you created in this task, to include macros individually. You should not use namespace when using macros.
+Modify template `lab08-task3.j2`, which you created in this task, to include macros individually. You should no longer use the namespace when using macros.
 
 ### Step 5
 

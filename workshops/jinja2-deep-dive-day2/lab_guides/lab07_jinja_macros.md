@@ -2,8 +2,7 @@
 
 Goals of this lab:
 
-- Practice using include statement.
-- Practice using import statement.
+- Practice writing Jinja macros.
 
 ## Task 01
 
@@ -72,6 +71,7 @@ interface {{ intf['name'] }}
 
 > Resources for this task:
 >  - [Jinja2 macros](https://jinja2docs.readthedocs.io/en/stable/templates.html#macros)
+>  - [Ansible `ipaddr` filter](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_filters_ipaddr.html)
 
 ### Step 1
 
@@ -109,6 +109,8 @@ For the below input:
 The macro should generate the below output:
 
 `172.16.0.0 0.0.0.255`
+
+> HINT: You should use Ansible filter to perform IP address conversion. Use `hostmask` argument to get wildcard.
 
 ### Step 3
 

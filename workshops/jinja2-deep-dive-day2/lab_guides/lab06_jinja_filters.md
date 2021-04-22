@@ -81,7 +81,7 @@ Run the below command to test your template.
 <details>
   <summary>Reveal Answer</summary>
 
-You need to chain the `map` filter and specify `attribute='interface'` as an argument. This will give a collection of interface names only.
+You need to chain the `map` filter and specify `attribute='interface'` as an argument. This will give you a collection of interface names only.
 
 Filters that give back collection return generator object. You need to convert the result to a list with the `list` filter before the final result can be displayed.
 
@@ -181,7 +181,7 @@ Servers: {{ servers }}
 
 Modify your template `lab06-task2.j2` to batch servers in units of 2 and display the names of the servers only.
 
-**output to match**
+**Output to match**
 ```
 Server type: app
 ['appFend04s', 'appFend03s']
@@ -232,9 +232,10 @@ Modify your template `lab06-task2.j2` to make the output more human-friendly.
 - Add a number to each of the batches.
 - Display server names in each batch separated by a comma and space.
 - Server names in each batch should be displayed in alphabetical order.
-- Add `---------------` divider separating server groups. - Divider needs to be centered in the field width of 40 characters.
+- Add `---------------` divider separating server groups. 
+- Divider needs to be centered in the field width of 40 characters.
 
-**output to match**
+**Output to match**
 ```
 Server type: app
 Batch 1: appFend03s, appFend04s
@@ -272,10 +273,6 @@ You should apply the `sort` filter to servers in a batch to have them sorted in 
 You should use the `join` filter with `, ` argument to concatenate server names in a batch.
 
 To center `---------------` you should use `center` filter with `40` as an argument.
-
-You should then apply the `batch` filter to the result, with `2` as the argument, to create batches of server names, each with 2 items.
-
-To display resulting batches you should use the `for` loop.
 
 ```
 {% for server_type, servers in servers | groupby(attribute='type') %}
@@ -343,7 +340,7 @@ In cases like this, you should use the `groupby` filter to create groups of obje
 
 To iterate over groups and members you should use the `for group, group_members` loop.
 
-Next, each of the group members is a collection of interfaces but you want IP addresses only. You should use the `for` loop and `map` filter to get a sequence of `ip` values.
+Each of the group members is a collection of interfaces but you want IP addresses only. You should use the `for` loop and `map` filter to get a sequence of `ip` values.
 
 Finally, inside the inner loop, you should use the `loop.index` variable to generate correct sequence numbers.
 

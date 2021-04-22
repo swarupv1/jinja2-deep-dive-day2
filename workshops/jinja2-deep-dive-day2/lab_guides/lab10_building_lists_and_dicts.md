@@ -46,7 +46,7 @@ ok: [localhost] => {
 
 Ansible loop iterates over the server names and each item is accessible via a variable called `server_name`.
 
-You should define a variable named `db_servers`. This variable will be assigned the value of append operation between itself and the current server name in the loop.
+You should define a variable named `db_servers`. This variable will be assigned the result of append operation between itself and the current server name in the loop.
 
 The server name is a string so it needs to be enclosed in square brackets `[]` to make a 1-element list. If you don't do it an error will be raised due to the incompatible types.
 
@@ -184,7 +184,7 @@ ok: [localhost] => {
 
 Ansible loop iterates over the switch names and each item is accessible via a variable called `switch`.
 
-You should define a variable named `switches_w_role`. This variable will be assigned the value of append operation between itself and a dictionary. This dictionary has two keys, `name` and `role`. Key `name` should have the current `switch` as its value. Key `role` has value `access-switch` for all of the switches.
+You should define a variable named `switches_w_role`. This variable will be assigned the result of append operation between itself and a 1-item list containing a dictionary. This dictionary has two keys, `name` and `role`. Key `name` should have the current `switch` as its value. Key `role` has value `access-switch` for all of the switches.
 
 Dictionary you define needs to be enclosed in square brackets `[]` to make a 1-element list. If you don't do it an error will be raised due to the incompatible types.
 

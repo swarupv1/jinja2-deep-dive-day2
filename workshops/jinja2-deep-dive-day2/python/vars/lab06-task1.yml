@@ -1,3 +1,4 @@
+---
 show_spanning_tree:
   - cost: "4"
     interface: "Gi1/1"

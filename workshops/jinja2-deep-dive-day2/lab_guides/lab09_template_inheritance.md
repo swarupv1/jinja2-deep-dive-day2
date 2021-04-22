@@ -1,4 +1,9 @@
-# Lab 09 - Template inheritance
+# Lab 09 - Jinja template inheritance
+
+Goals of this lab:
+
+- Practice build parent and child templates.
+- Practice use of block sections.
 
 ## Task 01
 
@@ -131,6 +136,7 @@ ip prefix-list PL_INET_OUT seq 10 permit 192.168.254.0/24
 If you want to keep the block content from the parent template, you should use the `{{ super() }}` statement.
 
 E.g.
+```
 {% block community_lists %}
 {{ super() }}
 ip community-list standard NTT_LOW_PRIORITY permit 65005:75
