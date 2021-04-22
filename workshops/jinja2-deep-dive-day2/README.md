@@ -6,6 +6,7 @@
 - Lab 07 - [Jinja macros](lab_guides/lab07_jinja_macros.md)
 - Lab 08 - [Jinja include and import](lab_guides/lab08_include_import.md)
 - Lab 09 - [Jinja template inheritance](lab_guides/lab09_template_inheritance.md)
+- Lab 10 - [Building lists and dictionaries in Ansible](lab_guides/lab10_building_lists_and_dicts.md)
 
 ## CONFIDENTIAL
 
