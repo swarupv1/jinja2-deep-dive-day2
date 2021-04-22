@@ -1,0 +1,41 @@
+---
+servers:
+ - name: dbAnalytics02s
+   type: db
+   location: Seattle
+ - name: mlNeural01s
+   type: ml
+   location: Seattle
+ - name: redisCache03p
+   type: redis
+   location: Portland
+ - name: mlNeural03s
+   type: ml
+   location: Seattle
+ - name: dbAnalytics01f
+   type: db
+   location: San Francisco
+ - name: appFend04s
+   type: app
+   location: Seattle
+ - name: mlNeural02s
+   type: ml
+   location: Seattle
+ - name: appFend03s
+   type: app
+   location: Seattle
+ - name: mlNeural01p
+   type: ml
+   location: Portland
+ - name: redisCache01s
+   type: redis
+   location: Seattle
+ - name: dbAnalytics01s
+   type: db
+   location: Seattle
+ - name: redisCache02f
+   type: redis
+   location: San Francisco
+ - name: mlNeural01f
+   type: ml
+   location: San Francisco

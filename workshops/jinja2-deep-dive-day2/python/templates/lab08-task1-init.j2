@@ -1,0 +1,98 @@
+!
+no service pad
+no service finger
+no service tcp-small-servers
+no service udp-small-servers
+no service config
+no service dhcp
+!
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+service password-encryption
+service sequence-numbers
+!
+hostname {{ hostname }}
+!
+aaa new-model
+aaa authentication login default group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization exec default group tacacs+ local if-authenticated
+aaa authorization commands 1 default group tacacs+ if-authenticated
+aaa authorization commands 15 default group tacacs+ if-authenticated
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 1 default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+banner motd ^
+=============================================
+|   This device is property of CorpCo       |
+|   Unauthorized access is unauthorized     |
+|  Only access it if you have access rights |
+|  Access attempts and commands are logged  |
+=============================================
+^
+!
+no ip domain lookup
+ip domain name local.lab
+{% for server in dns['servers'] %}
+ip name-server {{ server }}
+{% endfor %}
+!
+{% for server in ntp['servers'] %}
+{% if server['prefer'] == true %}
+ntp server {{ server['ip'] }} prefer
+{% else %}
+ntp server {{ server['ip'] }}
+{% endif %}
+{% endfor %}
+!
+{% for intf_name, intf_data in interfaces.items() %}
+interface {{ intf_name }}
+ {{ intf_data['description'] }}
+ {{ intf_data['ipv4_address'] }}
+{% endfor %}
+!
+{% for pl_name, pl_lines in prefix_lists.items() %}
+ip prefix-list {{ pl_name }}
+{% for line in pl_lines %}
+ {{ line }}
+{%  endfor %}
+{% endfor %}
+!
+router bgp {{ bgp['as_no'] }}
+ bgp router-id {{ bgp['rid'] }}
+ bgp log-neighbor-changes 
+{% for neighbor in bgp['neighbors'] %}
+{%  if neighbor['vrf'] is defined %}
+ address-family ipv4 vrf {{ neighbor['vrf'] }}
+  neighbor {{ neighbor['ip'] }} remote-as {{ neighbor['as_no'] }}
+  neighbor {{ neighbor['ip'] }} description {{ neighbor['description'] }}
+  neighbor {{ neighbor['ip'] }} route-map {{ neighbor['rm_in'] }} in
+  neighbor {{ neighbor['ip'] }} route-map {{ neighbor['rm_out'] }} out
+{%  if 'send_community' in neighbor['properties'] %}
+  neighbor {{ neighbor['ip'] }} send-community both
+{% endif %}
+{%   if 'rr_client' in neighbor['properties'] %}
+  neighbor {{ neighbor['ip'] }} route-reflector-client
+{%   endif %}
+  neighbor {{ neighbor['ip'] }} activate
+{%  else %}
+ address-family ipv4 unicast
+  neighbor {{ neighbor['ip'] }} remote-as {{ neighbor['as_no'] }}
+  neighbor {{ neighbor['ip'] }} description {{ neighbor['description'] }}
+  neighbor {{ neighbor['ip'] }} route-map {{ neighbor['rm_in'] }} in
+  neighbor {{ neighbor['ip'] }} route-map {{ neighbor['rm_out'] }} out
+{%  if 'send_community' in neighbor['properties'] %}
+  neighbor {{ neighbor['ip'] }} send-community both
+{% endif %}
+{%   if 'rr_client' in neighbor['properties'] %}
+  neighbor {{ neighbor['ip'] }} route-reflector-client
+{%   endif %}
+  neighbor {{ neighbor['ip'] }} activate
+{%  endif %}
+{% endfor %}

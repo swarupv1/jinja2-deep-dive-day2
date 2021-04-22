@@ -1,0 +1,14 @@
+---
+interfaces:
+  - name: GigabitEthernet1/4
+    ipv4_address: 10.20.0.241/29    
+  - name: GigabitEthernet1/6
+    ipv4_address: 10.15.62.129/25
+  - name: GigabitEthernet1/7
+    ipv4_address: 10.39.0.1/24
+  - name: GigabitEthernet1/13
+    ipv4_address: 10.51.3.1/23
+  - name: GigabitEthernet1/21
+    ipv4_address: 172.21.0.0/16
+
+in_std_acl_name: local-interfaces

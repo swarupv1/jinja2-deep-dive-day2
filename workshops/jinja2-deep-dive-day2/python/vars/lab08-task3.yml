@@ -1,0 +1,8 @@
+---
+networks:
+  - name: hadoop_server_net
+    prefix: 10.5.0.0/23
+  - name: spark_server_net
+    prefix: 10.7.1.128/25
+  - name: fend_server_net
+    prefix: 10.11.4.192/26

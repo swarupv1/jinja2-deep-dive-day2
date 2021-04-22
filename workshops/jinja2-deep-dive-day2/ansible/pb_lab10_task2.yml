@@ -1,0 +1,32 @@
+---
+- name: "PLAY 1: LAB10-TASK2 BUILD DICTIONARY"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+
+  vars:
+    interfaces:
+      - Ethernet1
+      - Ethernet2
+      - Ethernet3
+      - Ethernet4
+      - Ethernet5
+      - Ethernet6
+      - Ethernet7
+
+  tasks:
+
+  - name: "TASK 1: INITIALIZE DICT VARIABLE"
+    set_fact:
+      interfaces_w_vlan: {}
+
+  - name: "TASK 2: BUILD DICT WITH INTERFACES AND DEFAULT VLAN ASSIGNMENTS"
+    set_fact:
+    # Define a variable holding a dictionary with interfaces and vid assignment
+    loop: "{{ interfaces }}"
+    loop_control:
+      loop_var: intf_name
+
+  - name: "TASK 3: DEBUG INTERFACES WITH VLANS DICT"
+    debug:
+      msg: "{{ interfaces_w_vlan }}"
