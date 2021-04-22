@@ -84,14 +84,14 @@ An Ansible playbook was created for you to test these templates.
 Navigate to the `ansible` directory and execute the command below:
 
 ```
-ansible-playbook pb_inheritance.yml
+ansible-playbook pb_lab09_task1.yml
 ```
 
 If your additions were correct, a file named `router--edge_bgp.cfg` will be generated in the `output` directory.
 
 ### Step 7
 
-Modify `pb_inheritance.yml` playbook and update the variable `device_role` to `router--edge--inet`.
+Modify `pb_lab09_task1.yml` playbook and update the variable `device_role` to `router--edge--inet`.
 
 ```
   vars:
@@ -101,7 +101,7 @@ Modify `pb_inheritance.yml` playbook and update the variable `device_role` to `r
 Execute the command below:
 
 ```
-ansible-playbook pb_inheritance.yml
+ansible-playbook pb_lab09_task1.yml
 ```
 
 A file named `router--edge--inet_bgp.cfg` will be generated in the `output` directory.

@@ -1,5 +1,5 @@
 ---
-- name: "VRF TRANSFORM"
+- name: "PLAY 1: LAB10-TASK1 TEMPLATE INHERITANCE"
   hosts: "localhost"
   connection: "local"
   gather_facts: false
@@ -8,7 +8,7 @@
     device_role: "router--edge"
 
   tasks:
-    - name: "TASK 2: RENDER TEMPLATE"
+    - name: "TASK 2: RENDER ROLE TEMPLATE"
       template:
         src: "{{ device_role }}/bgp.j2"
         dest: "output/{{ device_role }}_bgp.cfg"

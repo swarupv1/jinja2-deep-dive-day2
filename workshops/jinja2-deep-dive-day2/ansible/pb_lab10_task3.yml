@@ -1,0 +1,29 @@
+---
+- name: "PLAY 1: LAB10-TASK3 BUILD LIST OF DICTIONARIES"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+
+  vars:
+    switches:
+      - sw-access-par-01
+      - sw-access-waw-02
+      - sw-access-ldn-01
+      - sw-access-ny-03
+
+  tasks:
+
+  - name: "TASK 1: INITIALIZE DICT VARIABLE"
+    set_fact:
+      switches_w_role: []
+
+  - name: "TASK 2: BUILD LIST OF DICTS WITH DEVICES AND ROLE ASSIGNMENTS"
+    set_fact:
+      switches_w_role: "{{ switches_w_role + [{'name': switch, 'role': 'access-switch'}] }}"
+    loop: "{{ switches }}"
+    loop_control:
+      loop_var: switch
+
+  - name: "TASK 3: DEBUG LIST OF DICTS WITH DEVICES AND ROLE ASSIGNMENTS"
+    debug:
+      msg: "{{ switches_w_role }}"

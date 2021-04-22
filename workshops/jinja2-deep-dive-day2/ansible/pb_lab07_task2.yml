@@ -1,5 +1,5 @@
 ---
-- name: "PLAY 1: LAB07-TASK2 Macros"
+- name: "PLAY 1: LAB07-TASK2 MACROS"
   hosts: "localhost"
   connection: "local"
   gather_facts: false

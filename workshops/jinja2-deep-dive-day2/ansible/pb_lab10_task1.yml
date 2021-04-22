@@ -1,0 +1,33 @@
+---
+- name: "PLAY 1: LAB10-TASK1 APPEND TO LIST"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+
+  vars:
+    servers:
+      - srvDB01t
+      - srvAPP02s
+      - srvWEB03t
+      - srvDB01b
+      - srvAPP03p
+      - srvAPP04p
+      - srvDB03g
+
+  tasks:
+
+  - name: "TASK 1: INITIALIZE LIST VARIABLE"
+    set_fact:
+      db_servers: []
+
+  - name: "TASK 2: ADD DB AND WEB SERVERS TO THE LIST"
+    set_fact:
+    # Define a variable holding a list of servers
+    loop: "{{ servers }}"
+    loop_control:
+      loop_var: server_name
+    when: "{{ 'DB' in server_name or 'WEB' in server_name }}"
+
+  - name: "TASK 3: DEBUG SERVER LIST"
+    debug:
+      msg: "{{ db_servers }}"
