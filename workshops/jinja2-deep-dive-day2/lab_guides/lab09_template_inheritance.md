@@ -2,7 +2,7 @@
 
 Goals of this lab:
 
-- Practice build parent and child templates.
+- Practice building parent and child templates.
 - Practice use of block sections.
 
 ## Task 01
