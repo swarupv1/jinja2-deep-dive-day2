@@ -19,7 +19,7 @@
 
   - name: "TASK 2: BUILD LIST OF DICTS WITH DEVICES AND ROLE ASSIGNMENTS"
     set_fact:
-      switches_w_role: "{{ switches_w_role + [{'name': switch, 'role': 'access-switch'}] }}"
+    # Define a variable holding a list of dictionaries with devices and role assignments
     loop: "{{ switches }}"
     loop_control:
       loop_var: switch
